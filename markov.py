@@ -45,28 +45,17 @@ def make_chains(text_string):
 
     chains = {}
     words = text_string.split()
-    # #print(words)
-    # for i in range(len(words)-2):
-    #      key_words = words[i], words[i + 1]
-    #      value = chains.get(key_words)
-    #      # print(chains)
-    #      if value is None:
-    #         value = []
-    #         value.append(words[i+2])
-    #         chains[key_words] = value
-# =========== 
+
     for i in range(len(words)-2):
-       # value = ''
+        
         key = words[i], words[i + 1]
-     #   key_value = key, value
-        value = chains.get(key)  
+        value = words[i+2]
 
         if value is None:
-            value = []
-            value.append(words[i+2])
+            
+            value.append(words)
             chains[key] = value
 
-            
 
         chains.setdefault(key, []).append(value)
 
