@@ -67,12 +67,37 @@ def make_text(chains):
 
     words = []
 
-    # your code goes here
+    key_list = list(chains)
+       
+    for i in range(len(key_list)):
+       
+        first_word = key_list[i][0]
+        second_word = key_list[i][1]
+        chosen_word = choice(chains[(first_word, second_word)])
+
+        while chosen_word is not None:
+            key_word = (second_word, chosen_word)
+            words.append(chosen_word)
+            final_word = choice(chains[key_word])
+
+    words.append(final_word)
+
+               
+        # if second_word in key_list[0] and chosen_word in key_list[1]:
+        #     last_word = choice(chains[(second_word, chosen_word)])
+
+        # words.append(second_word) 
+    # words.append(first_word)
+    # words.append(last_word)
+    # import pdb; pdb.set_trace()
 
     return " ".join(words)
 
 
+
+
 input_path = "green-eggs.txt"
+
 
 # Open the file and turn it into one long string
 input_text = open_and_read_file(input_path)
